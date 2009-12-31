@@ -42,7 +42,9 @@ describe RegistrationsController do
 
 
       @time_slot = mock("Time Slot")
+      @time_slot.stub!(:available?).and_return(true)
       @time_slot.stub!(:registration=)
+      
       TimeSlot.stub!(:find).and_return(@time_slot)
 
 
@@ -55,11 +57,12 @@ describe RegistrationsController do
       post 'create', :registration => {:time_slot_id => "3", :foo => "bar"}
     end
 
-    it "should redirect to new after successful create with flash flag set" do
+    it "should redirect to new after successful create with OK flag set" do
       @registration.should_receive(:valid?).and_return(true)
       post 'create', :registration => {:time_slot_id => "3" }
       response.should redirect_to(:action => "new")
       flash[:thanks_for_registering].should_not be_nil
+      flash[:too_slow].should be_nil
     end
 
     it "should redirect to new after failed create with flash model set" do
@@ -69,6 +72,15 @@ describe RegistrationsController do
       #so we can carry validation errors over the re-direct
       flash[:registration].should be(@registration)
       flash[:thanks_for_registering].should be_nil
+      flash[:too_slow].should be_nil
+    end
+    
+    it "should redirect to new with too slow flag set if slot is unavailable" do
+      @time_slot.should_receive(:available?).and_return(false)
+      post 'create', :registration => {:time_slot_id => "3" }
+      response.should redirect_to(:action => "new")
+      flash[:thanks_for_registering].should be_nil
+      flash[:too_slow].should_not be_nil
     end
     
   end

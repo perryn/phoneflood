@@ -4,5 +4,9 @@ class TimeSlot < ActiveRecord::Base
   def status
     registration ? "taken" : "free"
   end
+  
+  def available?
+    status == "free"
+  end
 
 end

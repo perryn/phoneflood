@@ -10,8 +10,12 @@ class RegistrationsController < ApplicationController
     registration = Registration.new(params[:registration])
     if registration.valid?
       time_slot = TimeSlot.find(params[:registration][:time_slot_id])
-      time_slot.registration = registration
-      flash[:thanks_for_registering] = "true"
+      if time_slot.available?
+        time_slot.registration = registration
+        flash[:thanks_for_registering] = "true"
+      else
+        flash[:too_slow] = "true"
+      end
     end
     flash[:registration] = registration
     redirect_to :action => :new

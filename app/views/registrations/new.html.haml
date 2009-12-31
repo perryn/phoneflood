@@ -26,5 +26,9 @@
             .notice.thanks_for_registering
               Thanks for helping out!
               We have sent you a confirmation email with further instructions.
+          - if flash[:too_slow]
+            .notice.too_slow
+              Too Slow! Someone else just registered for that time
+              Please choose another time.
             
         

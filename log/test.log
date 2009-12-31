@@ -4724,3 +4724,253 @@ Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 17:29:27) [GET
   Parameters: {"days_of_action_id"=>"3"}
 Rendering registrations/new
 Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:39:42', 0, NULL, NULL, '2009-12-31 07:39:42')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:39:42', 0, NULL, NULL, '2009-12-31 07:39:42')[0m
+  [4;35;1mTimeSlot Create (0.2ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:39:42', 0, NULL, NULL, '2009-12-31 07:39:42')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:39:42', 0, NULL, NULL, '2009-12-31 07:39:42')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:40:51', 0, NULL, NULL, '2009-12-31 07:40:51')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:40:51', 0, NULL, NULL, '2009-12-31 07:40:51')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:40:51', 0, NULL, NULL, '2009-12-31 07:40:51')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:40:51', 0, NULL, NULL, '2009-12-31 07:40:51')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.4ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:41:24', 0, NULL, NULL, '2009-12-31 07:41:24')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:41:24', 0, NULL, NULL, '2009-12-31 07:41:24')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.2ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:41:24', 0, NULL, NULL, '2009-12-31 07:41:24')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;36;1mTimeSlot Create (0.3ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 07:41:24', 0, NULL, NULL, '2009-12-31 07:41:24')[0m
+  [4;35;1mRegistration Load (0.1ms)[0m   [0mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:00:45) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:00:45) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 3ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:00:45) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:00:45) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3", "foo"=>"bar"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Bfoo%5D=bar&registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:00:45) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:00:45) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:01) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:01) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 3ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:01) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:01) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3", "foo"=>"bar"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Bfoo%5D=bar&registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:01) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:01) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:01) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:23) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 5ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:23) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 3ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:23) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:23) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3", "foo"=>"bar"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Bfoo%5D=bar&registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:23) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:23) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:24) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+  [4;36;1mDayOfAction Create (0.5ms)[0m   [0;1mINSERT INTO "day_of_actions" ("updated_at", "date", "time_zone", "created_at") VALUES('2009-12-31 08:01:36', '--- &id002 !ruby/object:Spec::Mocks::Mock 
+mock_proxy: !ruby/object:Spec::Mocks::Proxy 
+ already_proxied_respond_to: false
+ error_generator: &id001 !ruby/object:Spec::Mocks::ErrorGenerator 
+ declared_as: Mock
+ name: date
+ target: *id002
+ expectation_ordering: !ruby/object:Spec::Mocks::OrderGroup 
+ error_generator: *id001
+ ordering: []
+
+ expectations: []
+
+ messages_received: []
+
+ name: date
+ options: 
+ :__declared_as: Mock
+ :null_object: false
+ proxied_methods: []
+
+ stubs: []
+
+ target: *id002
+name: date
+options: 
+ :__declared_as: Mock
+', '--- &id002 !ruby/object:Spec::Mocks::Mock 
+mock_proxy: !ruby/object:Spec::Mocks::Proxy 
+ already_proxied_respond_to: false
+ error_generator: &id001 !ruby/object:Spec::Mocks::ErrorGenerator 
+ declared_as: Mock
+ name: zone
+ target: *id002
+ expectation_ordering: !ruby/object:Spec::Mocks::OrderGroup 
+ error_generator: *id001
+ ordering: []
+
+ expectations: []
+
+ messages_received: []
+
+ name: zone
+ options: 
+ :__declared_as: Mock
+ :null_object: false
+ proxied_methods: []
+
+ stubs: []
+
+ target: *id002
+name: zone
+options: 
+ :__declared_as: Mock
+', '2009-12-31 08:01:36')[0m
+  [4;35;1mTimeSlot Create (0.2ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, 1, NULL, '2009-12-31 08:01:36')[0m
+  [4;36;1mTimeSlot Create (0.1ms)[0m   [0;1mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, 1, NULL, '2009-12-31 08:01:36')[0m
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, NULL, NULL, '2009-12-31 08:01:36')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, NULL, NULL, '2009-12-31 08:01:36')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, NULL, NULL, '2009-12-31 08:01:36')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+  [4;35;1mTimeSlot Create (0.3ms)[0m   [0mINSERT INTO "time_slots" ("updated_at", "lock_version", "day_of_action_id", "start_time", "created_at") VALUES('2009-12-31 08:01:36', 0, NULL, NULL, '2009-12-31 08:01:36')[0m
+  [4;36;1mRegistration Load (0.1ms)[0m   [0;1mSELECT * FROM "registrations" WHERE ("registrations".time_slot_id = 1) LIMIT 1[0m
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:36) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3", "foo"=>"bar"}}
+Redirected to http://test.host/registrations/new
+Completed in 3ms (DB: 2) | 302 Found [http://test.host/registrations/create?registration%5Bfoo%5D=bar&registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:37) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:37) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#create (for 0.0.0.0 at 2009-12-31 19:01:37) [POST]
+  Parameters: {"registration"=>{"time_slot_id"=>"3"}}
+Redirected to http://test.host/registrations/new
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/registrations/create?registration%5Btime_slot_id%5D=3]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:37) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 64ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:37) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 64ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]
+
+
+Processing RegistrationsController#new (for 0.0.0.0 at 2009-12-31 19:01:37) [GET]
+  Parameters: {"days_of_action_id"=>"3"}
+Rendering registrations/new
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://test.host/days_of_action/3/registrations/new]

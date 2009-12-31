@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20091231024604) do
 
   create_table "time_slots", :force => true do |t|
     t.datetime "start_time"
+    t.integer  "lock_version"
     t.integer  "day_of_action_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -39,6 +39,13 @@ Feature: Volunteer registers for a time slot in a day of action
     Then I will be reminded to choose a time
     And the "What is your email address?" field should contain "foo@bar.com"
  
+Scenario: picks a taken time
+    Given a Day of Action has been set up for "1975-07-30" in "Canberra"
+
+    When I view the roster for the day of action
+    And someone else registers for the "09:15" time slot while I am looking
+    And I register for the "09:15" timeslot
+    Then I will be asked to pick a different time
   
   Scenario: Someone else gets in first
 Scenario: picks a taken time
