@@ -16,7 +16,7 @@
                 - slots.each do |slot|
                   %td{:class=> slot.status}
                     = f.label "time_slot_id_#{slot.id}", slot.start_time.strftime("%I:%M") 
-                    = f.radio_button :time_slot_id, slot.id
+                    = f.radio_button :time_slot_id, slot.id if slot.available?
                 
           = f.label :email_address, "What is your email address?", :class => :title
           = f.text_field :email_address, {:class => :title}  

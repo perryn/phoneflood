@@ -48,14 +48,18 @@ end
 
 Then /^the "([^\"]*)" timeslot will now be shown as taken$/ do |time|
   response.should have_tag(".taken") do
-    with_tag "label", time
+    with_tag "label", time 
   end
+  #there should not be any radio button for that time
+  response.should_not have_xpath("//td[label='#{time}']/input")
 end
 
 Then /^the "([^\"]*)" timeslot will still be shown as free$/ do |time|
   response.should have_tag(".free") do
     with_tag "label", time
   end
+  #there should be a radio button for that time
+  response.should have_xpath("//td[label='#{time}']/input")
 end
 
 Then /^I will be reminded that the times are in "([^\"]*)"$/ do |time_string|
