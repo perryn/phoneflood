@@ -6,29 +6,53 @@
 
   %body.bp.three-col
     #container
-      #content
-        - form_for :registration, @registration, :url => { :action => "create" } do |f| 
+      #blurb
+        %h3
+          On 
+          %span#date.hilite
+            = @day_of_action.date.strftime("%A #{@day_of_action.date.day.ordinalize} %B %Y")       
+          we will be calling
+          %span#recipient.hilite
+            = @day_of_action.recipient
+          on
+          %span#phone.hilite
+            = @day_of_action.phone                  
+          to express our opinion on
+          %span#subject.hilite
+            = @day_of_action.subject           
+          %br/
+          %br/
+          We hope you will join us.
+          
+      - form_for :registration, @registration, :url => { :action => "create" } do |f| 
+        #registration_form
+          %h2
+            Please register for a time to call
           Remember this table is in #{link_to "#{@day_of_action.time_zone} Time","http://what.timeisit.in/#{@day_of_action.time_zone}", :popup => true, :class => "time_zone_reminder"}
-          %table.roster
+          %table#roster
             - @day_of_action.time_slots.group_by{|slot| slot.start_time.strftime("%I %p")}.each do |hour, slots|
               %tr.hour
                 %th= hour
                 - slots.each do |slot|
-                  %td{:class=> slot.status}
+                  %td{:class=> "#{slot.status} input"}
+                    - if slot.available?
+                      = f.radio_button :time_slot_id, slot.id 
+                    - else
+                      = image_tag("tick.png")
+                  
+                  %td{:class=> "#{slot.status} label"}
                     = f.label "time_slot_id_#{slot.id}", slot.start_time.strftime("%I:%M") 
-                    = f.radio_button :time_slot_id, slot.id if slot.available?
-                
-          = f.label :email_address, "What is your email address?", :class => :title
+          = f.label :email_address, "What is your email address?", :class => :large
           = f.text_field :email_address, {:class => :title}  
           = f.submit 'Register'
-          = f.error_messages :message => "Whoops, can we try that again?", :header_message => nil
-          - if flash[:thanks_for_registering]
-            .notice.thanks_for_registering
-              Thanks for helping out!
-              We have sent you a confirmation email with further instructions.
-          - if flash[:too_slow]
-            .notice.too_slow
-              Too Slow! Someone else just registered for that time
-              Please choose another time.
-            
+        - if flash[:thanks_for_registering]
+          .success.thanks_for_registering
+            Thanks for helping out!
+            We have sent you a confirmation email with further instructions.
+        = f.error_messages :message => "Whoops, can we try that again?", :header_message => nil
+        - if flash[:too_slow]
+          .notice.too_slow
+            Too Slow! Someone else just registered for that time
+            Please choose another time.
+      
         

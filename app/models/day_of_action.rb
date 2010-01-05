@@ -10,4 +10,13 @@ class DayOfAction < ActiveRecord::Base
        time_slots << TimeSlot.create!(:start_time => time)
     end    
   end
+  
+  def self.test_create
+    DayOfAction.create!(:date => Date.today, 
+    :recipient => "The office of the prime minister",
+    :phone =>"(03) 9866 6789",
+    :subject => "The terrible terrible plan to censor the internet.",
+    :scheduler => BusinessHoursScheduler.new,
+    :time_zone => "Canberra")
+  end
 end

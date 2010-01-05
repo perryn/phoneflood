@@ -13,6 +13,9 @@ ActiveRecord::Schema.define(:version => 20091231024604) do
 
   create_table "day_of_actions", :force => true do |t|
     t.date     "date"
+    t.string   "recipient"
+    t.string   "phone"
+    t.string   "subject"
     t.string   "time_zone"
     t.datetime "created_at"
     t.datetime "updated_at"

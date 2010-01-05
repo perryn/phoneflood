@@ -9,26 +9,44 @@
 //@import compass/utilities/tables.sass
 //+table-scaffolding
 
+
+@import blueprint/modules/fancy_type.sass
+
+
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
-// +blueprint
+//+blueprint
+
 @import blueprint/modules/form.sass
 +blueprint-form
+
 //Recommended Blueprint configuration with scoping and semantic layout:
 +blueprint-typography("body.bp")
 +blueprint-scaffolding("body.bp")
-body.bp
+body.bp 
   +blueprint-utilities
   +blueprint-debug
   +blueprint-interaction
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
-form.bp
-  +blueprint-form
 
+=rounded-corners
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  border-radius: 10px
+  
+=section
+  padding: 10px
+  +rounded-corners
+  background: #E6EFC2 none repeat scroll 0 0
+  border: 2px solid #C6D880
+  margin-bottom: 1em
+  
 // Page layout can be done using mixins applied to your semantic classes and IDs:
-body.three-col
+body.three-col 
   #container
-    +container
+    +container  
+    h3, h2
+      margin-bottom: 0  
   #header, #footer
     +column(!blueprint_grid_columns)
   #sidebar
@@ -42,8 +60,53 @@ body.three-col
     // true means it's the last column in the row
     +column(!content_columns, true)
 
-.free
-  background-color: blue
+
+  #roster
+    .free
+      background-color: #CCE6FF 
+    .taken
+      background-color: #E6EFC2
+    .label
+
+    .input
+      # border-left: 3px solid white
+    th
+      background-color: #E6EFC2
+    td
+      padding: 0px 0px 0px 0px
+      # border-bottom: 3px solid white
+      input
+        &[type=radio], &.radio
+          :top 0em 
+          :width 1.5em
+          +blueprint-reset
+      img
+        :width 1.5em
+      label
+        padding: 0px 6px 0px 2px
+          
+table
+  white-space: nowrap
   
-.taken
-  background-color: green
+#blurb
+  +section
+  
+#registration_form
+  +section
+  
+.hilite
+  color: red
+  white-space: nowrap
+  
+.success
+  +rounded-corners
+
+
+
+
+
+
+      
+
+  
+
