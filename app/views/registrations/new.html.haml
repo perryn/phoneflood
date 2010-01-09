@@ -29,9 +29,11 @@
           
       - form_for :registration, @registration, :url => { :action => "create" } do |f| 
         #registration_form
-          %h2
+          .heading
             Please register for a time to call
-          Remember this table is in #{link_to "#{@day_of_action.time_zone} Time","http://what.timeisit.in/#{@day_of_action.time_zone}", :popup => true, :class => "time_zone_reminder"}
+          .time_zone_info  
+            Remember this table is in #{link_to "#{@day_of_action.time_zone} Time","http://what.timeisit.in/#{@day_of_action.time_zone}", :popup => true, :class => "time_zone_reminder"}
+          %div{:style => "clear:both"}
           %table#roster
             - @day_of_action.time_slots.group_by{|slot| slot.start_time.strftime("%I %p")}.each do |hour, slots|
               %tr.hour

@@ -30,7 +30,7 @@ Feature: Volunteer registers for a time slot in a day of action
     Then I will be reminded to choose a time
     And I will be reminded to enter an email address
     
-  Scenario: User Doesn't provide anything
+  Scenario: User Doesn't pick a time
     Given a Day of Action has been set up for "1975-07-30" in "Canberra"
 
     When I view the roster for the day of action

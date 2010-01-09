@@ -43,7 +43,7 @@ body.bp
   +rounded-corners
   background = !bgcolor none repeat scroll 0 0
   border = 2px solid !bordercolor
-  margin-top: 1em
+  margin-top: 0.5em
   margin-bottom: 1em
   
 // Page layout can be done using mixins applied to your semantic classes and IDs:
@@ -88,9 +88,6 @@ body.three-col
         :width 1.5em
       label
         padding: 0px 6px 0px 2px
-      .time_zone_info
-        float: right
-
   
   #blurb
     +section   
@@ -105,7 +102,14 @@ body.three-col
     +section
     table
       white-space: nowrap
-        
+      
+  .heading      
+    font-size: 200%
+    padding-bottom: .5em
+    +column(12)
+  .time_zone_info
+    +column(8,true)
+    +push(1)
   .thanks_for_registering
     +section(#E6EFC2, #C6D880)
 
