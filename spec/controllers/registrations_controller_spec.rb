@@ -42,7 +42,6 @@ describe RegistrationsController do
 
 
       @time_slot = mock("Time Slot")
-      @time_slot.stub!(:available?).and_return(true)
       @time_slot.stub!(:registration=)
       
       TimeSlot.stub!(:find).and_return(@time_slot)
@@ -76,7 +75,7 @@ describe RegistrationsController do
     end
     
     it "should redirect to new with too slow flag set if slot is unavailable" do
-      @time_slot.should_receive(:available?).and_return(false)
+      @time_slot.should_receive(:registration=).and_raise(TooSlowError)
       post 'create', :registration => {:time_slot_id => "3" }
       response.should redirect_to(:action => "new")
       flash[:thanks_for_registering].should be_nil

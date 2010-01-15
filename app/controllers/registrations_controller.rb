@@ -10,10 +10,10 @@ class RegistrationsController < ApplicationController
     registration = Registration.new(params[:registration])
     if registration.valid?
       time_slot = TimeSlot.find(params[:registration][:time_slot_id])
-      if time_slot.available?
+      begin
         time_slot.registration = registration
         flash[:thanks_for_registering] = "true"
-      else
+      rescue TooSlowError
         flash[:too_slow] = "true"
       end
     end
