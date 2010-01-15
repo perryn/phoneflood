@@ -11,11 +11,8 @@ class TimeSlot < ActiveRecord::Base
   end
 
   def registration=(registration)
-    if !available?
-      raise TooSlowError
-    else
-      self.real_registration = registration
-    end
+    raise TooSlowError unless available?
+    self.real_registration = registration
   end
 
 end
