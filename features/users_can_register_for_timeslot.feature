@@ -47,5 +47,3 @@ Scenario: picks a taken time
     And I register for the "09:15" timeslot
     Then I will be asked to pick a different time
   
-  Scenario: Someone else gets in first
-Scenario: picks a taken time

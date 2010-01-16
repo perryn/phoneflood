@@ -49,4 +49,6 @@ Rails::Initializer.run do |config|
   # We aren't using this, and the extra divs bugger up rendering, so this switches it off.
   config.action_view.field_error_proc = proc {|html, instance| html }
   
+  config.active_record.observers = :registration_observer
+  
 end
