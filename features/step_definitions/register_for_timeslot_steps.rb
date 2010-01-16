@@ -1,3 +1,13 @@
+Given /^I have registered for the "([^\"]*)" timeslot$/ do |time|
+    When "I view the roster for the day of action"
+    When "I register for the \"#{time}\" timeslot with email address \"foo@bar.com\""
+end
+
+Given /^I have registered for the "([^\"]*)" timeslot with email address "([^\"]*)"$/ do |time, email|
+  When "I view the roster for the day of action"
+  When "I register for the \"#{time}\" timeslot with email address \"#{email}\""
+end
+
 When /^I register for the "([^\"]*)" timeslot$/ do |time|
   When "I register for the \"#{time}\" timeslot with email address \"foo@bar.com\""
 end
@@ -6,6 +16,8 @@ When /^I register for the "([^\"]*)" timeslot with email address "([^\"]*)"$/ do
   choose time
   fill_in(:registration_email_address, :with => email)
   click_button "Register"
+  #TODO - make sure we get the right one here
+  @last_registration = Registration.last
 end
 
 When /^someone else registers for the "([^\"]*)" time slot while I am looking$/ do |time|

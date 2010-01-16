@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag "compiled/screen"
+    = stylesheet_link_tag "compiled/roster"
+
+  %body.bp.three-col
+    #container
+      #blurb
+        = image_tag("logo-efa.png")
+        %h3
+          On 
+          %span#date.hilite
+            = @day_of_action.date.strftime("%A #{@day_of_action.date.day.ordinalize} %B %Y")       
+          we will be calling
+          %span#recipient.hilite
+            = @day_of_action.recipient
+          on
+          %span#phone.hilite
+            = @day_of_action.phone                  
+          to express our opinion on
+          %span#subject.hilite
+            = @day_of_action.subject           
+          %br/
+          %br/
+          = yield :tag_line
+          
+      = yield
+      
+      #footer
+        made for 
+        = link_to "Electronic Frontiers Australia","http://efa.org.au", :popup => true
+        by
+        = link_to "@perrynfowler","http://twitter.com/perrynfowler", :popup => true

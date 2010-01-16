@@ -20,4 +20,10 @@ class RegistrationsController < ApplicationController
     flash[:registration] = registration
     redirect_to :action => :new
   end
+  
+  def view
+    @registration = Registration.find(params[:id])
+    @day_of_action = @registration.day_of_action
+  end
+  
 end

@@ -43,7 +43,7 @@ describe RegistrationsController do
 
       @time_slot = mock("Time Slot")
       @time_slot.stub!(:registration=)
-      
+
       TimeSlot.stub!(:find).and_return(@time_slot)
 
 
@@ -73,7 +73,7 @@ describe RegistrationsController do
       flash[:thanks_for_registering].should be_nil
       flash[:too_slow].should be_nil
     end
-    
+
     it "should redirect to new with too slow flag set if slot is unavailable" do
       @time_slot.should_receive(:registration=).and_raise(TooSlowError)
       post 'create', :registration => {:time_slot_id => "3" }
@@ -81,6 +81,23 @@ describe RegistrationsController do
       flash[:thanks_for_registering].should be_nil
       flash[:too_slow].should_not be_nil
     end
-    
+
+  end
+
+  describe "on view" do
+
+    before do
+      @registration = mock("registration")
+      @day_of_action = mock("day of action")
+      @registration.stub!(:day_of_action).and_return(@day_of_action)
+    end
+
+    it "it should find registration and expose it and its day_of_action to view" do
+      Registration.should_receive(:find).with("3").and_return(@registration)
+      get 'view', :id => 3
+      response.should be_success
+      assigns[:registration].should equal(@registration)
+      assigns[:day_of_action].should equal(@day_of_action)
+    end
   end
 end
