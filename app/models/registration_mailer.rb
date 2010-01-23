@@ -2,7 +2,7 @@ class RegistrationMailer < ActionMailer::Base
 
   def confirmation_email(registration)
     recipients    registration.email_address
-    from          "Electronic Frontiers Australia <what@should.that.be.com>"
+    from          "Electronic Frontiers Australia <email@efa.org.au>"
     recipient = registration.day_of_action.recipient
     time = registration.time_slot.start_time
     #TODO - timezone here?

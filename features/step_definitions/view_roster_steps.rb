@@ -22,6 +22,10 @@ When /^I view the roster for the day of action that does not exist$/ do
   visit new_days_of_action_registration_path -1
 end
 
+Then /^I will be shown the roster for the day of action$/ do
+  current_url.should =~  /#{new_days_of_action_registration_path @day_of_action}/
+end
+
 Then /^I will see a 404$/ do
   response.code.should == "404"
 end
@@ -67,7 +71,11 @@ Then /^each slot will be free$/ do
   number_of_free_slots.should eql number_of_slots
 end
 
-Then /^the "([^\"]*)" timeslot will ?n?o?w? be shown as taken$/ do |time|
+Then /^the "([^\"]*)" timeslot will now be shown as taken$/ do |time|
+  Then "the \"#{time}\" timeslot will be shown as taken"
+end
+
+Then /^the "([^\"]*)" timeslot will be shown as taken$/ do |time|
   response.should have_tag(".taken") do
     with_tag "label", time
   end
@@ -76,6 +84,10 @@ Then /^the "([^\"]*)" timeslot will ?n?o?w? be shown as taken$/ do |time|
 end
 
 Then /^the "([^\"]*)" timeslot will still be shown as free$/ do |time|
+  Then "the \"#{time}\" timeslot will be shown as free"
+end
+
+Then /^the "([^\"]*)" timeslot will be shown as free$/ do |time|
   response.should have_tag(".free") do
     with_tag "label", time
   end

@@ -29,7 +29,7 @@ describe RegistrationMailer do
     RegistrationMailer.deliver_confirmation_email(@registration)
     ActionMailer::Base.deliveries.size.should == 1
     email = ActionMailer::Base.deliveries[0]
-    email.from.should eql ["what@should.this.be.com"]
+    email.from.should eql ["email@efa.org.au"]
   end
 
   it "should send mail with subject containing important details" do

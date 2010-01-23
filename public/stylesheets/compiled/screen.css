@@ -539,7 +539,7 @@ body.three-col .time_zone_info {
   * html body.three-col .time_zone_info {
     overflow-x: hidden; }
 /* line 105, ../../../app/stylesheets/screen.sass */
-body.three-col .thanks_for_registering {
+body.three-col .ok_message {
   padding: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -549,7 +549,7 @@ body.three-col .thanks_for_registering {
   margin-top: 0.5em;
   margin-bottom: 1em; }
 /* line 108, ../../../app/stylesheets/screen.sass */
-body.three-col .too_slow {
+body.three-col .warning {
   padding: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;

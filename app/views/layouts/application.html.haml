@@ -27,6 +27,16 @@
           
       = yield
       
+      - if flash[:message]
+        .ok_message
+          %h3
+            =flash[:message]
+      
+      - if flash[:warning]
+        .warning
+          %h3
+            =flash[:warning]
+      
       #footer
         made for 
         = link_to "Electronic Frontiers Australia","http://efa.org.au", :popup => true

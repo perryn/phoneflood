@@ -27,7 +27,7 @@ end
 
 
 Then /^I will be thanked and asked to look for an email$/ do
-  response.should have_tag(".thanks_for_registering")
+  response.should have_tag(".ok_message", "Thanks for helping out!  We have sent you a confirmation email with further instructions.")
 end
 
 Then /^I will be reminded to enter an email address$/ do

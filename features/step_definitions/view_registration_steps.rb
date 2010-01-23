@@ -3,7 +3,7 @@ When /^I view a registration that does not exist$/ do
 end
 
 When /^I view my registration$/ do
-  visit registrations_path @last_registration
+  visit registration_path @last_registration
 end
 
 Then /^I will be reminded that I have registered for "([^\"]*)" timeslot$/ do |time|

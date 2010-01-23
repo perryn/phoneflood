@@ -56,11 +56,11 @@ describe RegistrationsController do
       post 'create', :registration => {:time_slot_id => "3", :foo => "bar"}
     end
 
-    it "should redirect to new after successful create with OK flag set" do
+    it "should redirect to new after successful create with message set" do
       @registration.should_receive(:valid?).and_return(true)
       post 'create', :registration => {:time_slot_id => "3" }
       response.should redirect_to(:action => "new")
-      flash[:thanks_for_registering].should_not be_nil
+      flash[:message].should_not be_nil
       flash[:too_slow].should be_nil
     end
 
@@ -74,17 +74,17 @@ describe RegistrationsController do
       flash[:too_slow].should be_nil
     end
 
-    it "should redirect to new with too slow flag set if slot is unavailable" do
+    it "should redirect to new with warning set if slot is unavailable" do
       @time_slot.should_receive(:registration=).and_raise(TooSlowError)
       post 'create', :registration => {:time_slot_id => "3" }
       response.should redirect_to(:action => "new")
       flash[:thanks_for_registering].should be_nil
-      flash[:too_slow].should_not be_nil
+      flash[:warning].should_not be_nil
     end
 
   end
 
-  describe "on view" do
+  describe "on show" do
 
     before do
       @registration = mock("registration")
@@ -94,10 +94,54 @@ describe RegistrationsController do
 
     it "it should find registration and expose it and its day_of_action to view" do
       Registration.should_receive(:find).with("3").and_return(@registration)
-      get 'view', :id => 3
+      get 'show', :id => 3
       response.should be_success
       assigns[:registration].should equal(@registration)
       assigns[:day_of_action].should equal(@day_of_action)
     end
   end
+
+  describe "on destroy" do
+
+    before do
+      @registration = mock("registration")
+      @registration.stub!(:destroy)
+      @email = "foo@bar.com"
+      @registration.stub!(:email_address).and_return(@email)
+      @day_of_action = mock("day of action")
+      @registration.stub!(:day_of_action).and_return(@day_of_action)
+      Registration.stub!(:find).and_return(@registration)
+    end
+
+    describe "if email adresses match" do
+
+
+      it "should destroy the registration" do
+        @registration.should_receive(:destroy)
+        post 'destroy', {:id => 3, :registration_registered_email_address => @email}
+      end
+
+      it "should redirect to new form with message set" do
+        Registration.should_receive(:find).with("3").and_return(@registration)
+        post 'destroy', {:id => 3, :registration_registered_email_address => @email}
+        response.should redirect_to(new_days_of_action_registration_path(@day_of_action))
+        flash[:message].should_not be_nil
+      end
+    end
+
+    describe "if email adresses do not match" do
+      it "should not destroy the registration" do
+        @registration.should_not_receive(:destroy)
+        post 'destroy', {:id => 3, :registration_registered_email_address => "some other email"}
+      end
+
+      it "should redirect to show with message set" do
+        post 'destroy', {:id => 3, :registration_registered_email_address => "some other email"}
+        response.should redirect_to(:action => "show")
+        flash[:warning].should_not be_nil
+      end
+    end
+
+  end
+
 end

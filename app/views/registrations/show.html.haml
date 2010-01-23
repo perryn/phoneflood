@@ -1,0 +1,18 @@
+= content_for :tag_line do
+  We are glad you have joined us.
+          
+#registration_form
+  .heading
+    You are registered to call at 
+    %span#registered_time.hilite
+      = @registration.time_slot.start_time.strftime("%I:%M %p")
+  %div{:style => "clear:both"}
+  %br/
+  %br/
+  -form_for :registration, :url => registration_path(@registration) , :html => {:method => :delete } do |f| 
+    %span.large
+      If you can no longer call at this time, please let us know...
+    %br/
+    = f.label :registered_email_address, "What email address did you register with?", :class => :large
+    = text_field_tag "registration_registered_email_address","",{:class => :title}
+    = f.submit "Sorry, I can't make it"
