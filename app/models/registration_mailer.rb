@@ -4,13 +4,12 @@ class RegistrationMailer < ActionMailer::Base
     recipients    registration.email_address
     from          "Electronic Frontiers Australia <email@efa.org.au>"
     recipient = registration.day_of_action.recipient
-    time = registration.time_slot.start_time
-    #TODO - timezone here?
-    time_string = time.strftime("%I:%M %p")
-    date_string = time.strftime("%d/%m/%Y")
-    long_date_string = time.strftime("%A #{time.day.ordinalize} %B %Y")
+    time_slot = registration.time_slot
+    time_string = time_slot.strftime("%I:%M %p")
+    date_string = time_slot.strftime("%d/%m/%Y")
+    #TODO - day.ordinalize will not handle timezones too far out
+    long_date_string = time_slot.strftime("%A #{time_slot.start_time.day.ordinalize} %B %Y")
     subject       "You're registered to call #{recipient} at #{time_string} on #{date_string}"
-    # sent_on       Time.now
     body         :registration => registration, :time => time_string, :date => long_date_string
   end
 

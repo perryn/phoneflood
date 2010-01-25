@@ -9,7 +9,7 @@
       Remember this table is in #{link_to "#{@day_of_action.time_zone} Time","http://what.timeisit.in/#{@day_of_action.time_zone}", :popup => true, :class => "time_zone_reminder"}
     %div{:style => "clear:both"}
     %table#roster
-      - @day_of_action.time_slots.group_by{|slot| slot.start_time.strftime("%I %p")}.each do |hour, slots|
+      - @day_of_action.time_slots.group_by{|slot| slot.strftime("%I %p")}.each do |hour, slots|
         %tr.hour
           %th= hour
           - slots.each do |slot|
@@ -20,7 +20,7 @@
                 = image_tag("tick.png")
             
             %td{:class=> "#{slot.status} label"}
-              = f.label "time_slot_id_#{slot.id}", slot.start_time.strftime("%I:%M") 
+              = f.label "time_slot_id_#{slot.id}", slot.strftime("%I:%M") 
     = f.label :email_address, "What is your email address?", :class => :large
     = f.text_field :email_address, {:class => :title}  
     = f.submit 'Register'

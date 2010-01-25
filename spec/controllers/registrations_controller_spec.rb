@@ -6,7 +6,6 @@ describe RegistrationsController do
 
     before do
       @day_of_action = mock("DOA")
-      @day_of_action.stub!(:time_zone).and_return("Foo")
       DayOfAction.stub!(:find).and_return(@day_of_action)
     end
 
@@ -26,12 +25,6 @@ describe RegistrationsController do
       assigns[:registration].should be(registration)
     end
 
-    it "should set the time zone to the one specified by the day of action" do
-      DayOfAction.should_receive(:find).and_return(@day_of_action)
-      @day_of_action.should_receive(:time_zone).and_return("London")
-      Time.should_receive(:zone=).with("London")
-      get 'new', :days_of_action_id => 3
-    end
   end
 
   describe "on create" do

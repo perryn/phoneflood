@@ -18,6 +18,7 @@ When /^I view the roster for the day of action$/ do
   visit new_days_of_action_registration_path @day_of_action
 end
 
+
 When /^I view the roster for the day of action that does not exist$/ do
   visit new_days_of_action_registration_path -1
 end

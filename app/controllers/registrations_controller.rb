@@ -3,7 +3,6 @@ class RegistrationsController < ApplicationController
   def new
     @day_of_action = DayOfAction.find(params[:days_of_action_id], :include => {:time_slots =>  :registration} )
     @registration = flash[:registration]
-    Time.zone = @day_of_action.time_zone
   end
 
   def create

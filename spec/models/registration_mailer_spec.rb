@@ -7,6 +7,7 @@ describe RegistrationMailer do
     @registration = mock("registration")
     @time_slot = mock("timeslot")
     @time_slot.stub!(:start_time).and_return(Time.now)
+    @time_slot.stub!(:strftime).and_return("9:00 AM")
     @day_of_action = mock("day of action")
     @day_of_action.stub!(:date).and_return(Date.today)
     @day_of_action.stub!(:recipient).and_return("recipent")
@@ -35,6 +36,7 @@ describe RegistrationMailer do
   it "should send mail with subject containing important details" do
     nine_am_on_30_july_1975 = DateTime.civil(1975,7,30,9,0)
     @time_slot.should_receive(:start_time).and_return(nine_am_on_30_july_1975)
+    @time_slot.stub!(:strftime).and_return("09:00 AM", "30/07/1975")
     @day_of_action.should_receive(:recipient).and_return("Kevin Rudd's Office")
     RegistrationMailer.deliver_confirmation_email(@registration)
     ActionMailer::Base.deliveries.size.should == 1
@@ -45,6 +47,7 @@ describe RegistrationMailer do
   it "should send mail with body containing all details" do
     nine_am_on_30_july_1975 = DateTime.civil(1975,7,30,9,0)
     @time_slot.stub!(:start_time).and_return(nine_am_on_30_july_1975)
+    @time_slot.stub!(:strftime).and_return("09:00 AM", "Wednesday 30th July 1975")
     @day_of_action.stub!(:recipient).and_return("Kevin Rudd's Office")
     @day_of_action.stub!(:phone).and_return("(02) 5555 5555")
     @day_of_action.stub!(:subject).and_return("The Internet Filter")
@@ -58,8 +61,6 @@ describe RegistrationMailer do
   end
 
   # tell them what timezone we are talking
-  # deal with timezone properly
   
-  #do we need to set the sent time?
 
 end

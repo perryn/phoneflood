@@ -5,7 +5,7 @@
   .heading
     You are registered to call at 
     %span#registered_time.hilite
-      = @registration.time_slot.start_time.strftime("%I:%M %p")
+      = @registration.time_slot.strftime("%I:%M %p")
   %div{:style => "clear:both"}
   %br/
   %br/

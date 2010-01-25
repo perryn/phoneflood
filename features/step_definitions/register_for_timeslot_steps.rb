@@ -21,7 +21,7 @@ When /^I register for the "([^\"]*)" timeslot with email address "([^\"]*)"$/ do
 end
 
 When /^someone else registers for the "([^\"]*)" time slot while I am looking$/ do |time|
-  time_slot = @day_of_action.time_slots.select{|slot| slot.start_time.strftime("%I:%M") == "09:15"}[0]
+  time_slot = @day_of_action.time_slots.select{|slot| slot.strftime("%I:%M") == "09:15"}[0]
   time_slot.registration = Registration.new(:email_address => "foo@bar.com")
 end
 
