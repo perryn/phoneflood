@@ -10,8 +10,8 @@ describe RegistrationsController do
       DayOfAction.stub!(:find).and_return(@day_of_action)
     end
 
-    it "should find day of action and expose it to view" do
-      DayOfAction.should_receive(:find).with("3").and_return(@day_of_action)
+    it "should find day of action with eager loaded roster, and expose it to view" do
+      DayOfAction.should_receive(:find).with("3", {:include=>{:time_slots=>:registration}}).and_return(@day_of_action)
       get 'new', :days_of_action_id => 3
 
       response.should be_success
@@ -27,7 +27,7 @@ describe RegistrationsController do
     end
 
     it "should set the time zone to the one specified by the day of action" do
-      DayOfAction.should_receive(:find).with("3").and_return(@day_of_action)
+      DayOfAction.should_receive(:find).and_return(@day_of_action)
       @day_of_action.should_receive(:time_zone).and_return("London")
       Time.should_receive(:zone=).with("London")
       get 'new', :days_of_action_id => 3
