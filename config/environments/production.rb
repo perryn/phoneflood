@@ -26,3 +26,7 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+# This needs to be set to the host of the application deplyed in production
+# so that the emails can contain absolute links back to the site
+ActionMailer::Base.default_url_options[:host] = "phoneflood.heroku.com"

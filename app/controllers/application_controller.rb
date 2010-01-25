@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  
+ 
 
   def record_not_found
     render :file => "#{RAILS_ROOT}/public/404.html",

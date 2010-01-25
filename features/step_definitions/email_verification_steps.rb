@@ -17,3 +17,13 @@ Then /^the email will confirm that I have registered to call at "([^\"]*)" on "(
   @last_email.body.should =~ /#{time} on #{date}/
 end
 
+Then /^the email will contain a link I should click if I can't make it$/ do
+  @last_email.body =~ /http[s]?:\/\/\S+/
+  @link = $&
+  @link.should_not be_nil
+end
+
+When /^I visit the link$/ do
+ visit @link
+end
+
