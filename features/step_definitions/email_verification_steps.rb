@@ -21,6 +21,7 @@ Then /^the email will contain a link I should click if I can't make it$/ do
   @last_email.body =~ /http[s]?:\/\/\S+/
   @link = $&
   @link.should_not be_nil
+  puts @last_email.body
 end
 
 When /^I visit the link$/ do

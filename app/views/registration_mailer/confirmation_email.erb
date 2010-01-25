@@ -1,0 +1,12 @@
+Hi there,
+
+This email is to confirm that you are registered to call <%= @registration.day_of_action.recipient %> about <%= @registration.day_of_action.subject %>
+
+Phone Number : <%= @registration.day_of_action.phone %>
+Time To Call : <%= @time %> on <%= @date %>
+
+If for any reason, you are unable to call at this time please let us know by visiting the following link
+<%=registration_url(@registration) %>
+
+Thank you for your support,
+Electronic Frontiers Australia
