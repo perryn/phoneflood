@@ -27,4 +27,4 @@ config.action_mailer.delivery_method = :test
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
 
-ActionMailer::Base.default_url_options[:host] = "localhost:3000"
+ActionMailer::Base.default_url_options[:host] = "0.0.0.0:3000"
