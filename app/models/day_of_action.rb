@@ -13,9 +13,9 @@ class DayOfAction < ActiveRecord::Base
   
   def self.test_create
     DayOfAction.create!(:date => Date.today, 
-    :recipient => "The office of the prime minister",
+    :recipient => "Kevin Rudd's Office",
     :phone =>"(03) 9866 6789",
-    :subject => "The terrible terrible plan to censor the internet.",
+    :subject => "the internet filter",
     :scheduler => BusinessHoursScheduler.new,
     :time_zone => "Canberra")
   end
