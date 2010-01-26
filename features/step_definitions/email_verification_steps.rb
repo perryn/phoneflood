@@ -1,7 +1,14 @@
 Then /^I will receive a confirmation email at "([^\"]*)"$/ do |email_address|
   ActionMailer::Base.deliveries.should_not be_empty
-  @last_email = ActionMailer::Base.deliveries[0]
+  @last_email = ActionMailer::Base.deliveries.pop
   @last_email.to.should eql([email_address])
+end
+
+Then /^I will receive a reminder email at "([^\"]*)"$/ do |email_address|
+  ActionMailer::Base.deliveries.should_not be_empty
+  @last_email = ActionMailer::Base.deliveries.pop
+  @last_email.to.should eql([email_address])
+  @last_email.body.should =~ /reminder/
 end
 
 Then /^the email will confirm that I have registered to call "([^\"]*)" on "([^\"]*)" about "([^\"]*)"$/ do |recipient, phone, subject|

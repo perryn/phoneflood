@@ -40,4 +40,23 @@ describe DayOfAction do
     end
 
   end
+
+  describe "on send reminders" do
+
+    it "should deliver reminder email for each registration" do
+      registration_one = mock("reg one")
+      registration_two = mock("reg two")
+      registrations = [registration_one, registration_two]
+      day_of_action = DayOfAction.new
+      day_of_action.stub!(:registrations).and_return(registrations)
+
+      RegistrationMailer.should_receive(:deliver_reminder_email).once.with(registration_one)
+      RegistrationMailer.should_receive(:deliver_reminder_email).once.with(registration_two)
+
+      day_of_action.send_reminders
+
+    end
+
+  end
+
 end

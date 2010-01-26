@@ -1,14 +1,3 @@
-Given /^a Day of Action has been set up for "([^\"]*)" in "([^\"]*)"$/ do |date, time_zone|
-  @day_of_action = DayOfAction.create!(:scheduler => BusinessHoursScheduler.new, :date => Date.parse(date), :time_zone => time_zone)
-end
-
-
-Given /^a Day of Action has been set up for:$/ do |table|
-  table.hashes.each do |hash|
-    @day_of_action = DayOfAction.create!({"scheduler" => BusinessHoursScheduler.new, "time_zone" => "Canberra"}.merge(hash))
-  end
-end
-
 Given /^the "([^\"]*)" slot has already been taken$/ do |time|
   When "I view the roster for the day of action"
   When "I register for the \"#{time}\" timeslot"

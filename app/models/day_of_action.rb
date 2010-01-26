@@ -1,6 +1,7 @@
 class DayOfAction < ActiveRecord::Base
   attr_writer :scheduler 
   has_many :time_slots
+  has_many :registrations, :through => :time_slots
   
   def before_create
     raise "You must provide a scheduler to create a Day of Action" unless @scheduler
@@ -9,6 +10,12 @@ class DayOfAction < ActiveRecord::Base
     @scheduler.each_time_slot_in(date, time_zone) do |time|
        time_slots << TimeSlot.create!(:start_time => time)
     end    
+  end
+  
+  def send_reminders
+    registrations.each do |registration|
+      RegistrationMailer.deliver_reminder_email(registration)
+    end
   end
   
   def self.test_create
