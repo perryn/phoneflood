@@ -4,12 +4,12 @@ Given /^the "([^\"]*)" slot has already been taken$/ do |time|
 end
 
 When /^I view the roster for the day of action$/ do
-  visit new_days_of_action_registration_path @day_of_action
+  visit new_days_of_action_registration_path(@day_of_action)
 end
 
 
 When /^I view the roster for the day of action that does not exist$/ do
-  visit new_days_of_action_registration_path -1
+  visit new_days_of_action_registration_path(-1)
 end
 
 Then /^I will be shown the roster for the day of action$/ do
@@ -24,7 +24,7 @@ end
 Then /^I will see a section for each hour between 9 am and 5 pm$/ do
   expected_hours = ["09 AM", "10 AM", "11 AM", "12 PM", "01 PM", "02 PM", "03 PM", "04 PM"]
   actual_hours = element_at("#roster").to_table.collect { |row| row.first}
-  actual_hours.should eql expected_hours
+  actual_hours.should eql(expected_hours)
 end
 
 Then /^each section will be divided into 5 minute slots$/ do
@@ -43,7 +43,7 @@ Then /^each section will be divided into 5 minute slots$/ do
     actual_times = slots.map{|tag| tag.to_s.match(/\d\d:\d\d/)[0]}
   end
 
-  actual_times.should eql expected_times
+  actual_times.should eql(expected_times)
 end
 
 Then /^each slot will be free$/ do
@@ -58,7 +58,7 @@ Then /^each slot will be free$/ do
     number_of_slots = all_slots.size
   end
 
-  number_of_free_slots.should eql number_of_slots
+  number_of_free_slots.should eql(number_of_slots)
 end
 
 Then /^the "([^\"]*)" timeslot will now be shown as taken$/ do |time|

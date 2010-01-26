@@ -27,14 +27,14 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_confirmation_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.to.should eql ["foo@bar.com"]
+      email.to.should eql(["foo@bar.com"])
     end
 
     it "should send mail from EFA" do
       RegistrationMailer.deliver_confirmation_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.from.should eql ["email@efa.org.au"]
+      email.from.should eql(["email@efa.org.au"])
     end
 
     it "should send mail with subject containing important details" do
@@ -45,7 +45,7 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_confirmation_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.subject.should eql "You're registered to call Kevin Rudd's Office at 09:00 AM on 30/07/1975"
+      email.subject.should eql("You're registered to call Kevin Rudd's Office at 09:00 AM on 30/07/1975")
     end
 
     it "should send mail with body containing all details" do
@@ -73,14 +73,14 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_reminder_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.to.should eql ["foo@bar.com"]
+      email.to.should eql(["foo@bar.com"])
     end
 
     it "should send mail from EFA" do
       RegistrationMailer.deliver_reminder_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.from.should eql ["email@efa.org.au"]
+      email.from.should eql(["email@efa.org.au"])
     end
 
     it "should send mail with subject containing important details" do
@@ -91,7 +91,7 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_reminder_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM on 30/07/1975"
+      email.subject.should eql("Reminder to call Kevin Rudd's Office at 09:00 AM on 30/07/1975")
     end
 
     it "should send mail with friendly date in subject if reminder is for today" do
@@ -104,7 +104,7 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_reminder_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM today"
+      email.subject.should eql("Reminder to call Kevin Rudd's Office at 09:00 AM today")
     end
 
     it "should send mail with friendly date in subject if reminder is for tomorrow" do
@@ -117,7 +117,7 @@ describe RegistrationMailer do
       RegistrationMailer.deliver_reminder_email(@registration)
       ActionMailer::Base.deliveries.size.should == 1
       email = ActionMailer::Base.deliveries[0]
-      email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM tomorrow"
+      email.subject.should eql("Reminder to call Kevin Rudd's Office at 09:00 AM tomorrow")
     end
 
     it "should send mail with body containing all details" do
