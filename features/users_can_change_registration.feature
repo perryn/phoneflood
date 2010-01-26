@@ -10,14 +10,14 @@ Feature: Volunteer changes their registration
   
   Scenario: Volunteer will be reminded of details of registration 
    Given a Day of Action has been set up for:
-      | date       |      recipient       | phone             | subject                |
-      | 2010-01-05 |  Kevin Rudd's Office | (02) 6277 7700    | The Internet Filter    |
+      | date       |      recipient       | phone             | subject                | time_zone |
+      | 2010-01-05 |  Kevin Rudd's Office | (02) 6277 7700    | The Internet Filter    | Canberra  |
       
     And I have registered for the "09:15" timeslot
     
     When I view my registration
     Then I will see a blurb that explains that on "Tuesday 5th January 2010" we will call "Kevin Rudd's Office" on "(02) 6277 7700" about "The Internet Filter"
-    And I will be reminded that I have registered for "09:15 AM" timeslot
+    And I will be reminded that I have registered for "09:15 AM" timeslot in "Canberra" time
     
   Scenario: Volunteer can de-register for a timeslot and re-register for a different timeslot
     Given a Day of Action has been set up for:

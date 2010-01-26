@@ -5,7 +5,7 @@ end
 
 Given /^a Day of Action has been set up for:$/ do |table|
   table.hashes.each do |hash|
-    @day_of_action = DayOfAction.create!(hash.merge({:scheduler => BusinessHoursScheduler.new, :time_zone => "Canberra"}))
+    @day_of_action = DayOfAction.create!({"scheduler" => BusinessHoursScheduler.new, "time_zone" => "Canberra"}.merge(hash))
   end
 end
 

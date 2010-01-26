@@ -2,10 +2,14 @@
   We are glad you have joined us.
           
 #registration_form
-  .heading
+  .heading.wide
     You are registered to call at 
     %span#registered_time.hilite
       = @registration.time_slot.strftime("%I:%M %p")
+    (
+    %span#registered_time_zone
+      = @registration.day_of_action.time_zone 
+    time )
   %div{:style => "clear:both"}
   %br/
   %br/

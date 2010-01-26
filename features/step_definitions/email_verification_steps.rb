@@ -4,8 +4,6 @@ Then /^I will receive a confirmation email at "([^\"]*)"$/ do |email_address|
   @last_email.to.should eql([email_address])
 end
 
-
-
 Then /^the email will confirm that I have registered to call "([^\"]*)" on "([^\"]*)" about "([^\"]*)"$/ do |recipient, phone, subject|
   @last_email.body.should =~ /#{recipient}/
   #TODO - figure out how to escpae stuff in regexes and put the following assertion back in
@@ -21,6 +19,9 @@ Then /^the email will confirm that I have registered to call at "([^\"]*)"$/ do 
     @last_email.body.should =~ /#{time}/
 end
 
+Then /^I will be reminded that this is in "([^\"]*)" time$/ do |time_zone|
+  @last_email.body.should =~ /#{time_zone} time/
+end
 
 Then /^the email will contain a link I should click if I can't make it$/ do
   @last_email.body =~ /http[s]?:\/\/\S+/
