@@ -94,6 +94,32 @@ describe RegistrationMailer do
       email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM on 30/07/1975"
     end
 
+    it "should send mail with friendly date in subject if reminder is for today" do
+      nine_am_on_30_july_1975 = DateTime.civil(1975,7,30,9,0)
+      july_30_1975 = Date.civil(1975,7,30)
+      Date.stub!(:today).and_return(july_30_1975)
+      @time_slot.should_receive(:start_time).and_return(nine_am_on_30_july_1975)
+      @time_slot.stub!(:strftime).and_return("09:00 AM")
+      @day_of_action.should_receive(:recipient).and_return("Kevin Rudd's Office")
+      RegistrationMailer.deliver_reminder_email(@registration)
+      ActionMailer::Base.deliveries.size.should == 1
+      email = ActionMailer::Base.deliveries[0]
+      email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM today"
+    end
+
+    it "should send mail with friendly date in subject if reminder is for tomorrow" do
+      nine_am_on_30_july_1975 = DateTime.civil(1975,7,30,9,0)
+      july_29_1975 = Date.civil(1975,7,29)
+      Date.stub!(:today).and_return(july_29_1975)
+      @time_slot.should_receive(:start_time).and_return(nine_am_on_30_july_1975)
+      @time_slot.stub!(:strftime).and_return("09:00 AM")
+      @day_of_action.should_receive(:recipient).and_return("Kevin Rudd's Office")
+      RegistrationMailer.deliver_reminder_email(@registration)
+      ActionMailer::Base.deliveries.size.should == 1
+      email = ActionMailer::Base.deliveries[0]
+      email.subject.should eql "Reminder to call Kevin Rudd's Office at 09:00 AM tomorrow"
+    end
+
     it "should send mail with body containing all details" do
       nine_am_on_30_july_1975 = DateTime.civil(1975,7,30,9,0)
       @time_slot.stub!(:start_time).and_return(nine_am_on_30_july_1975)

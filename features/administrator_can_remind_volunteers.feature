@@ -14,9 +14,7 @@ Feature: Administrator can send reminders via email
     
     When I view the roster for the day of action
     And I register for the "09:35" timeslot with email address "foo@bar.com"
-    
-    Given it is now "2010-01-04"
-    
+     
     When the administrator sends out reminders
     
     Then I will receive a reminder email at "foo@bar.com"

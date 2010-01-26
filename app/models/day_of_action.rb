@@ -19,7 +19,7 @@ class DayOfAction < ActiveRecord::Base
   end
   
   def self.test_create
-    DayOfAction.create!(:date => Date.today, 
+    DayOfAction.create!(:date => Date.civil(2010,1,26), 
     :recipient => "Kevin Rudd's Office",
     :phone =>"(03) 9866 6789",
     :subject => "the internet filter",
