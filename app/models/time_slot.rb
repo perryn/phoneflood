@@ -20,4 +20,18 @@ class TimeSlot < ActiveRecord::Base
     start_time.in_time_zone(day_of_action.time_zone).strftime(format)
   end
 
+  def describe_date
+    today_in_time_zone = DateTime.now.in_time_zone(day_of_action.time_zone).to_date
+    time_slot_date_in_time_zone = start_time.in_time_zone(day_of_action.time_zone).to_date
+
+    case time_slot_date_in_time_zone
+    when today_in_time_zone 
+      "today"
+    when today_in_time_zone + 1
+      "tomorrow"
+    else
+      "on #{strftime("%d/%m/%Y")}"
+    end
+  end
+
 end

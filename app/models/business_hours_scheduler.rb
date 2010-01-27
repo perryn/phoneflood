@@ -14,6 +14,7 @@ class BusinessHoursScheduler
 
   private
 
+  #TODO: this wont work for timezones with negative offsets from UTC
   def midnight_in_timezone(date, timezone)
     # 1) find midnight on the date in UTC
     # 2) convert it to a time in the required timezone

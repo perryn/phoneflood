@@ -16,27 +16,11 @@ class RegistrationMailer < ActionMailer::Base
     recipient = registration.day_of_action.recipient
     time_slot = registration.time_slot
     time_string = time_slot.strftime("%I:%M %p")
-    date_string = date_string(time_slot)
     #TODO - day.ordinalize will not handle timezones too far out
     long_date_string = time_slot.strftime("%A #{time_slot.start_time.day.ordinalize} %B %Y")
-    subject       "#{subject_prefix} to call #{recipient} at #{time_string} #{date_string}"
+    subject       "#{subject_prefix} to call #{recipient} at #{time_string} #{time_slot.describe_date}"
     body         :registration => registration, :time => time_string, :date => long_date_string
   end
 
-  def date_string(time_slot)
-    #TODO - this might get the day wrong due to timezones
-    today = Date.today
-    puts today
-    puts time_slot.start_time
-    puts time_slot.start_time.to_date
-    case time_slot.start_time.to_date
-    when today
-      "today"
-    when today + 1
-      "tomorrow"
-    else
-      "on #{time_slot.strftime("%d/%m/%Y")}"
-    end
-  end
 
 end

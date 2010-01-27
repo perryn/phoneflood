@@ -11,6 +11,11 @@ Then /^I will receive a reminder email at "([^\"]*)"$/ do |email_address|
   @last_email.body.should =~ /reminder/
 end
 
+Then /^the subject will be "([^\"]*)"$/ do |subject|
+  @last_email.subject.should eql(subject)
+end
+
+
 Then /^the email will confirm that I have registered to call "([^\"]*)" on "([^\"]*)" about "([^\"]*)"$/ do |recipient, phone, subject|
   @last_email.body.should =~ /#{recipient}/
   #TODO - figure out how to escpae stuff in regexes and put the following assertion back in
