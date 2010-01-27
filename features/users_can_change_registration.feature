@@ -48,4 +48,3 @@ Feature: Volunteer changes their registration
       When I de-register with email address "someone@else.com"
       Then I will be asked to try again
   
-  Scenario: Reminded of time zone
