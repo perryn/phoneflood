@@ -25,7 +25,6 @@ class RegistrationMailer < ActionMailer::Base
 
   def date_string(time_slot)
     #TODO - this might get the day wrong due to timezones
-    Time.zone = "Canberra"
     today = Date.today
     case time_slot.start_time.to_date
     when today
