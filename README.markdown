@@ -26,14 +26,13 @@ The application is administered via the rails console
 
 ### Set up a day of action
 
-  >> DayOfAction.create!(:date => Date.civil(2010,1,28),
+    >> DayOfAction.create!(:date => Date.civil(2010,1,28),
                       :recipient => "Kevin Rudd's Office", 
                       :phone =>"(03) 9866 6789", 
                       :subject => "the internet filter", 
                       :scheduler => BusinessHoursScheduler.new, 
                       :time_zone => "Canberra")
                     
-  => #<DayOfAction id: 2, date: "2010-01-28", recipient: "Kevin Rudd's Office", phone: "(03) 9866 6789", subject: "the internet filter", time_zone: "Canberra", created_at: "2010-01-27 01:50:28", updated_at: "2010-01-27 01:50:28">
     
 The schedule for the day of action will then be available at /days_of_action/#{day_of_action.id}/registrations/new
 
