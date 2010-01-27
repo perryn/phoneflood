@@ -26,6 +26,9 @@ class RegistrationMailer < ActionMailer::Base
   def date_string(time_slot)
     #TODO - this might get the day wrong due to timezones
     today = Date.today
+    puts today
+    puts time_slot.start_time
+    puts time_slot.start_time.to_date
     case time_slot.start_time.to_date
     when today
       "today"
